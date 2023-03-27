@@ -49,7 +49,7 @@ def calculate_max_distance(altitude):
     max_distance = math.sqrt(altitude_km * (2 * R + altitude_km))
     return max_distance
 
-def visible_points(latitude, longitude, altitude, max_distance):
+def visible_points(latitude, longitude, altitude, max_distance, tilt, fov):
     """Retrieve visible points of interest within the specified maximum distance.
     
     Args:
@@ -73,8 +73,7 @@ def visible_points(latitude, longitude, altitude, max_distance):
         distance = haversine(latitude, longitude, lat, lon)
 
         try:
-            elevation = int(elevation)
-            if  elevation != 'N/A' and int(elevation) > 220:
+            if  elevation > 220:
                 visible_rows.append((id, name, lat, lon, elevation, distance))  # Keep distance in each row
         except:
             pass
@@ -105,8 +104,6 @@ def get_peaks():
     tilt = float(request.args.get("tilt"))
     fov = float(request.args.get("fov"))
 
-    print(tilt, fov)
-
     altitude = get_elevation(latitude, longitude) + 2  # Call the get_elevation function, add two due to camera height
 
     if altitude is None:
@@ -114,7 +111,7 @@ def get_peaks():
 
     max_distance = calculate_max_distance(altitude)  # Calculate the max distance in kilometers
 
-    visible_peaks = visible_points(latitude, longitude, altitude, max_distance)
+    visible_peaks = visible_points(latitude, longitude, altitude, max_distance, tilt, fov)
 
     return jsonify(visible_peaks)
 
