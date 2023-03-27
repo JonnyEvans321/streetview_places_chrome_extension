@@ -1,20 +1,27 @@
 {
-    "name": "GeoGuesser Location Finder",
-    "description": "Console logs the location and coords of the current geoguesser round in the extensions console",
-    "version": "1.0",
-    "manifest_version": 3,
-    "action": {
-      "default_popup": "popup.html"
-    },
-    "background": {
-      "service_worker": "background.js"
-    },
-    "host_permissions": [
-      "<all_urls>"
-    ],
-    "permissions": [
-      "webRequest",
-      "notifications",
-      "storage"
-    ]
-  }
+  "name": "GeoGuesser Location Finder",
+  "description": "Console logs the location and coords of the current geoguesser round in the extensions console",
+  "version": "1.0",
+  "manifest_version": 3,
+  "action": {
+    "default_popup": "popup.html"
+  },
+  "background": {
+    "service_worker": "background.js"
+  },
+  "permissions": [
+    "webRequest",
+    "notifications",
+    "storage",
+    "tabs"
+  ],
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["displayerScript.js"]
+    }
+  ],
+  "host_permissions": [
+    "<all_urls>"
+  ]
+}
