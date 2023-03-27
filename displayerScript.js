@@ -49,7 +49,7 @@ async function display() {
               // Place a red marker on the user's screen for each peak
               for (let peak of peaks) {
                 const { latitude: peakLat, longitude: peakLon, altitude } = peak;
-                const markerUrl = chrome.runtime.getURL("marker.png");
+                const markerUrl = chrome.runtime.getURL("assets/marker.png");
                 const markerSize = 40;
                 const x = window.innerWidth / 2;
                 const y = window.innerHeight / 2;

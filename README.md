@@ -22,4 +22,4 @@ This is a Chrome extension that enhances Google Street View by displaying nearby
 Enjoy exploring the world in a new way!
 
 ## Screenshot
-![Demo Screenshot](demo_image.jpeg)
+![Demo Screenshot](assets/demo_image.jpeg)
