@@ -1,9 +1,25 @@
-# GeoGuessr Chrome Extension Hack
-A chrome extension. While playing guoguesser, click to open a new browser window containing google maps with the set location to where you are
+# Streetview Places Chrome Extension
 
+This is a Chrome extension that enhances Google Street View by displaying nearby points of interest on the user's screen. 
 
-### Setup
-Just save this repo to your computer, go to `manage extensions` in your chrome browser, press `Load unpacked`, and select this folder
+## Features
+- Displays nearby peaks, summits, and mountain ranges visible from the current viewpoint in Google Street View.
+- Displays the coordinates of the user's current location.
+- Displays the orientation of the user's view.
 
-### Bugs
-Sometimes the location won't get set unless the service worker terminal is open. In manage extensions click the blue `service worker` link in the panel for this extension (GeoGuesser Location Finder) to open the console, in the console it will print `set value` as well as the coordinate data if it's working
+## Installation
+1. Clone the repository to your local machine.
+2. Open Chrome and navigate to `chrome://extensions`.
+3. Toggle Developer mode to ON.
+4. Click on Load unpacked and select the directory where you cloned the repository.
+
+## Usage
+1. Open Google Street View in your browser.
+2. The extension will automatically display nearby peaks and summits in the user's view.
+
+**Note**: This extension requires a Flask server to retrieve data about nearby peaks and summits. At the moment, the server must be run locally on the user's machine. However, the developer plans to host the server soon. To run the Flask server locally, navigate to the root directory of the project in your terminal and run the command `python app.py`. 
+
+Enjoy exploring the world in a new way!
+
+## Screenshot
+![Demo Screenshot](demo_image.jpeg)
